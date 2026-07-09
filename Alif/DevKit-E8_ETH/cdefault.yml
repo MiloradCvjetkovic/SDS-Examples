@@ -38,6 +38,7 @@ default:
         - -std=c++17
         - -fno-exceptions
         - -fno-rtti
+        - -ffast-math
       Link:
 #       - --specs=nano.specs
         - --specs=nosys.specs
