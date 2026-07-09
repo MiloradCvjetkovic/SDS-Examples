@@ -113,7 +113,6 @@ SECTIONS
 
   .code.at_itcm : ALIGN(8)
   {
-    *(.text*)
     *(.itcm*)                             /* Object targeting ITCM */
     . = ALIGN(16);
   } > ITCM AT > MRAM
@@ -261,6 +260,7 @@ SECTIONS
     *(SORT(.dtors.*))
     *(.dtors)
 
+    *(.text*)
     *(.rodata*)
 
     KEEP(*(.eh_frame*))
