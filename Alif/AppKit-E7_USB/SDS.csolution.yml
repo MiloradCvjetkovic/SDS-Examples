@@ -62,7 +62,7 @@ solution:
 
     - type: Release
       debug: off
-      optimize: speed
+      optimize: balanced
       define:
         - SDS_STDIO: 0
 
