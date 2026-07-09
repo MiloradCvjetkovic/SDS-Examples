@@ -30,9 +30,21 @@ jobs:
       fail-fast: false
       matrix:
         config: 
-          [ # example directory,         toolchain
-            { dir: ./Alif/AppKit-E7_USB, toolchain: GCC },
-            { dir: ./Alif/DevKit-E8_ETH, toolchain: GCC },
+          [ # example directory,         project,                build-type,          target-type,                toolchain
+            { dir: ./Alif/AppKit-E7_USB, project: DataTest,      build-type: Debug,   target-type: AppKit-E7-U55, toolchain: GCC },
+            { dir: ./Alif/AppKit-E7_USB, project: DataTest,      build-type: Release, target-type: AppKit-E7-U55, toolchain: GCC },
+            { dir: ./Alif/AppKit-E7_USB, project: AlgorithmTest, build-type: Debug,   target-type: AppKit-E7-U55, toolchain: GCC },
+            { dir: ./Alif/AppKit-E7_USB, project: DataTest,      build-type: Debug,   target-type: SSE-300-U55,   toolchain: GCC },
+            { dir: ./Alif/AppKit-E7_USB, project: DataTest,      build-type: Release, target-type: SSE-300-U55,   toolchain: GCC },
+            { dir: ./Alif/AppKit-E7_USB, project: AlgorithmTest, build-type: Debug,   target-type: SSE-300-U55,   toolchain: GCC },
+            { dir: ./Alif/AppKit-E7_USB, project: AlgorithmTest, build-type: Release, target-type: SSE-300-U55,   toolchain: GCC },
+            { dir: ./Alif/DevKit-E8_ETH, project: DataTest,      build-type: Debug,   target-type: DevKit-E8-U85, toolchain: GCC },
+            { dir: ./Alif/DevKit-E8_ETH, project: DataTest,      build-type: Release, target-type: DevKit-E8-U85, toolchain: GCC },
+            { dir: ./Alif/DevKit-E8_ETH, project: AlgorithmTest, build-type: Debug,   target-type: DevKit-E8-U85, toolchain: GCC },
+            { dir: ./Alif/DevKit-E8_ETH, project: DataTest,      build-type: Debug,   target-type: SSE-320-U85,   toolchain: GCC },
+            { dir: ./Alif/DevKit-E8_ETH, project: DataTest,      build-type: Release, target-type: SSE-320-U85,   toolchain: GCC },
+            { dir: ./Alif/DevKit-E8_ETH, project: AlgorithmTest, build-type: Debug,   target-type: SSE-320-U85,   toolchain: GCC },
+            { dir: ./Alif/DevKit-E8_ETH, project: AlgorithmTest, build-type: Release, target-type: SSE-320-U85,   toolchain: GCC }
           ]
 
     steps:
@@ -66,7 +78,7 @@ jobs:
             cmsis-packs-
           path: /home/runner/.cache/arm/packs
 
-      - name: Build example in ${{matrix.config.dir}} with ${{matrix.config.toolchain}} toolchain
+      - name: Build example in ${{matrix.config.dir}} for context ${{matrix.config.project}}.${{matrix.config.build-type}}+${{matrix.config.target-type}} with ${{matrix.config.toolchain}} toolchain
         working-directory: ${{matrix.config.dir}}
         run: |
-          cbuild SDS.csolution.yml --toolchain ${{matrix.config.toolchain}} --packs --update-rte
+          cbuild SDS.csolution.yml --context ${{matrix.config.project}}.${{matrix.config.build-type}}+${{matrix.config.target-type}} --toolchain ${{matrix.config.toolchain}} --packs --update-rte
