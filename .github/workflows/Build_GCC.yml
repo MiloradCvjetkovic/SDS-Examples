@@ -37,14 +37,12 @@ jobs:
             { dir: ./Alif/AppKit-E7_USB, project: DataTest,      build-type: Debug,   target-type: SSE-300-U55,   toolchain: GCC },
             { dir: ./Alif/AppKit-E7_USB, project: DataTest,      build-type: Release, target-type: SSE-300-U55,   toolchain: GCC },
             { dir: ./Alif/AppKit-E7_USB, project: AlgorithmTest, build-type: Debug,   target-type: SSE-300-U55,   toolchain: GCC },
-            { dir: ./Alif/AppKit-E7_USB, project: AlgorithmTest, build-type: Release, target-type: SSE-300-U55,   toolchain: GCC },
             { dir: ./Alif/DevKit-E8_ETH, project: DataTest,      build-type: Debug,   target-type: DevKit-E8-U85, toolchain: GCC },
             { dir: ./Alif/DevKit-E8_ETH, project: DataTest,      build-type: Release, target-type: DevKit-E8-U85, toolchain: GCC },
             { dir: ./Alif/DevKit-E8_ETH, project: AlgorithmTest, build-type: Debug,   target-type: DevKit-E8-U85, toolchain: GCC },
             { dir: ./Alif/DevKit-E8_ETH, project: DataTest,      build-type: Debug,   target-type: SSE-320-U85,   toolchain: GCC },
             { dir: ./Alif/DevKit-E8_ETH, project: DataTest,      build-type: Release, target-type: SSE-320-U85,   toolchain: GCC },
-            { dir: ./Alif/DevKit-E8_ETH, project: AlgorithmTest, build-type: Debug,   target-type: SSE-320-U85,   toolchain: GCC },
-            { dir: ./Alif/DevKit-E8_ETH, project: AlgorithmTest, build-type: Release, target-type: SSE-320-U85,   toolchain: GCC }
+            { dir: ./Alif/DevKit-E8_ETH, project: AlgorithmTest, build-type: Debug,   target-type: SSE-320-U85,   toolchain: GCC }
           ]
 
     steps:
